@@ -1,0 +1,361 @@
+.milestone-board {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+
+.milestone-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.milestone-btn-primary {
+    width: fit-content;
+
+    padding: 9px 16px;
+
+    border: 1px solid #2864ed;
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2f6df4,
+            #2455d9
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(40, 100, 237, 0.2);
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.milestone-btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #3977ff,
+            #2860e5
+        );
+
+    box-shadow:
+        0 11px 24px rgba(40, 100, 237, 0.28);
+}
+
+
+.milestone-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+.milestone-btn-secondary {
+    width: fit-content;
+
+    padding: 9px 16px;
+
+    border: 1px solid #3a4d69;
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #c8d4e2;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.milestone-btn-secondary:hover {
+    border-color: #526b8e;
+
+    background: #16233a;
+
+    color: #ffffff;
+}
+
+
+.milestone-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-width: 100%;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #293b56;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #14213a 0%,
+            #101a2d 100%
+        );
+}
+
+
+.milestone-form-row {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr;
+
+    gap: 12px;
+}
+
+
+.milestone-form input,
+.milestone-form textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #33445e;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #101a2b;
+
+    color: #f5f8fc;
+
+    font-family: inherit;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.milestone-form textarea {
+    min-height: 70px;
+    max-height: 120px;
+
+    resize: none;
+}
+
+
+.milestone-form input:focus,
+.milestone-form textarea:focus {
+    border-color: #2864ed;
+
+    box-shadow:
+        0 0 0 3px rgba(40, 100, 237, 0.16);
+}
+
+
+.milestone-form-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 4px;
+}
+
+
+.milestone-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.milestone-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border: 1px solid #2a3d59;
+    border-left: 4px solid #3b82f6;
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #14213a 0%,
+            #101a2d 100%
+        );
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.milestone-card:has(select[disabled]) {
+    border-left-color: #49d69c;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(40, 201, 139, 0.08),
+            #101a2d
+        );
+}
+
+
+.milestone-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.milestone-info strong,
+.milestone-info p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+.milestone-info strong {
+    color: #f4f8fc;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+.milestone-info p {
+    margin: 0;
+
+    color: #aab8ca;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+
+.milestone-info small {
+    margin-top: 4px;
+
+    color: #f6c85f;
+
+    font-family: monospace;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+.milestone-card select {
+    width: 100%;
+
+    padding: 9px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #33445e;
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #101a2b;
+
+    color: #f3f7fc;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.milestone-card select:focus {
+    border-color: #2864ed;
+
+    box-shadow:
+        0 0 0 3px rgba(40, 100, 237, 0.14);
+}
+
+
+.milestone-card select:disabled {
+    cursor: default;
+
+    border-color:
+        rgba(40, 201, 139, 0.2);
+
+    background:
+        rgba(40, 201, 139, 0.1);
+
+    color: #49d69c;
+
+    font-weight: 800;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    text-align: center;
+}
+
+
+.milestone-error {
+    width: fit-content;
+
+    padding: 10px 14px;
+
+    border:
+        1px solid rgba(239, 91, 98, 0.3);
+
+    border-left:
+        4px solid #ef5b62;
+
+    border-radius: 8px;
+
+    background:
+        rgba(239, 91, 98, 0.1);
+
+    color: #ff7b82;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+@media (max-width: 700px) {
+    .milestone-form-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,101 @@
+# ProjectForge GitLab CI
+#
+# Runs the complete automated test suite for the integrated system.
+# The frontend accessibility and security tests run together with
+# the backend unit, API and PostgreSQL integration tests.
+
+stages:
+  - test
+
+
+projectforge_tests:
+  stage: test
+  image: node:20
+
+  services:
+    # A temporary PostgreSQL database is created for the backend
+    # migration and seed integration tests.
+    - name: postgres:16
+      alias: postgres
+
+  variables:
+    NODE_ENV: "test"
+
+    # PostgreSQL service configuration.
+    POSTGRES_DB: "projectforge_ci"
+    POSTGRES_USER: "projectforge"
+    POSTGRES_PASSWORD: "projectforge_ci_password"
+
+    # ProjectForge database configuration used by the backend tests.
+    DB_HOST: "postgres"
+    DB_PORT: "5432"
+    DB_NAME: "projectforge_ci"
+    DB_USER: "projectforge"
+    DB_PASSWORD: "projectforge_ci_password"
+
+    # Test-only JWT value used inside the CI environment.
+    JWT_SECRET: "projectforge-ci-secret"
+
+  script:
+    # Install and run the complete frontend test suite.
+    - cd frontend
+    - npm ci
+    - npm test
+
+    # Install the backend dependencies.
+    - cd ../backend
+    - npm ci
+
+    # Wait until the temporary PostgreSQL service is ready.
+    - |
+      node <<'NODE'
+      const { Client } = require("pg");
+
+      const wait = (ms) =>
+        new Promise((resolve) => setTimeout(resolve, ms));
+
+      async function waitForDatabase() {
+        for (let attempt = 1; attempt <= 15; attempt += 1) {
+          const client = new Client({
+            host: process.env.DB_HOST,
+            port: process.env.DB_PORT,
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+          });
+
+          try {
+            await client.connect();
+            await client.query("SELECT 1");
+            await client.end();
+
+            console.log("PostgreSQL is ready.");
+            return;
+          } catch (error) {
+            try {
+              await client.end();
+            } catch {
+              // The connection may not have opened yet.
+            }
+
+            console.log(
+              `Waiting for PostgreSQL (${attempt}/15)...`
+            );
+
+            await wait(2000);
+          }
+        }
+
+        throw new Error(
+          "PostgreSQL did not become ready in time."
+        );
+      }
+
+      waitForDatabase().catch((error) => {
+        console.error(error.message);
+        process.exit(1);
+      });
+      NODE
+
+    # Run all backend unit, API and database integration tests.
+    - npm test

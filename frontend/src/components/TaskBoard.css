@@ -1,0 +1,427 @@
+.task-board {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.task-board-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.task-board-actions button {
+    width: fit-content;
+}
+
+
+.f1-primary-btn {
+    width: fit-content;
+
+    padding: 9px 16px;
+
+    border: 1px solid #2864ed;
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2f6df4,
+            #2455d9
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(40, 100, 237, 0.2);
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.f1-primary-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #3977ff,
+            #2860e5
+        );
+
+    box-shadow:
+        0 11px 24px rgba(40, 100, 237, 0.28);
+}
+
+
+.f1-primary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+.task-create-form {
+    display: grid;
+
+    grid-template-columns:
+        minmax(180px, 1.5fr)
+        minmax(220px, 2fr)
+        minmax(180px, 1.25fr);
+
+    gap: 12px;
+
+    align-items: center;
+
+    padding: 16px;
+
+    border: 1px solid #293b56;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #14213a 0%,
+            #101a2d 100%
+        );
+}
+
+
+.task-create-form input,
+.task-create-form select {
+    width: 100%;
+    min-width: 0;
+
+    padding: 9px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #33445e;
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #101a2b;
+
+    color: #f5f8fc;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.task-create-form input:focus,
+.task-create-form select:focus {
+    border-color: #2864ed;
+
+    box-shadow:
+        0 0 0 3px rgba(40, 100, 237, 0.15);
+}
+
+
+.task-create-form button {
+    min-height: 38px;
+
+    white-space: nowrap;
+}
+
+
+.task-columns {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.task-column {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border: 1px solid #2a3d59;
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #14213a 0%,
+            #101a2d 100%
+        );
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.task-column-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 8px;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        1px solid #2a3a52;
+}
+
+
+.task-column-header h3 {
+    margin: 0;
+
+    color: #9fb5ce;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.09em;
+}
+
+
+.task-column-header span {
+    flex-shrink: 0;
+
+    padding: 3px 8px;
+
+    border: 1px solid #314762;
+    border-radius: 999px;
+
+    background: #0f192a;
+
+    color: #eef4fb;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+.task-card {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 13px;
+
+    border: 1px solid #293b56;
+    border-left: 3px solid #52708f;
+    border-radius: 7px;
+
+    background: #101a2b;
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+/* TO DO */
+.task-column:nth-child(1) .task-card {
+    border-left-color: #52708f;
+}
+
+
+/* IN PROGRESS */
+.task-column:nth-child(2) .task-card {
+    border-left-color: #f4b740;
+}
+
+
+/* BLOCKED */
+.task-column:nth-child(3) .task-card {
+    border-left-color: #ef5b62;
+}
+
+
+/* DONE */
+.task-column:nth-child(4) .task-card {
+    border-left-color: #49d69c;
+}
+
+
+.task-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+
+.task-card strong {
+    min-width: 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    word-break: break-word;
+}
+
+
+.task-card span {
+    color: #9fb0c4;
+
+    font-size: 12px;
+
+    word-break: break-word;
+}
+
+
+.task-card small {
+    color: #8da0b8;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    word-break: break-word;
+}
+
+
+.task-card select {
+    width: 100%;
+
+    margin-top: 4px;
+
+    padding: 7px 9px;
+
+    border: 1px solid #33445e;
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #14213a;
+
+    color: #f3f7fc;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.task-card select:focus {
+    border-color: #2864ed;
+
+    box-shadow:
+        0 0 0 3px rgba(40, 100, 237, 0.14);
+}
+
+
+.task-card select:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+}
+
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #52708f;
+}
+
+
+.status-indicator.in-progress {
+    background: #f4b740;
+}
+
+
+.status-indicator.blocked {
+    background: #ef5b62;
+}
+
+
+.status-indicator.complete {
+    background: #49d69c;
+}
+
+
+.task-board-error {
+    width: fit-content;
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 14px;
+
+    border:
+        1px solid rgba(239, 91, 98, 0.3);
+
+    border-left:
+        4px solid #ef5b62;
+
+    border-radius: 8px;
+
+    background:
+        rgba(239, 91, 98, 0.1);
+
+    color: #ff7b82;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+@media (max-width: 1200px) {
+    .task-columns {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .task-create-form {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 700px) {
+    .task-create-form {
+        grid-template-columns: 1fr;
+    }
+
+
+    .task-columns {
+        grid-template-columns: 1fr;
+    }
+}

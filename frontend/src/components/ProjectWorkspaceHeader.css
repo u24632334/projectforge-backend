@@ -1,0 +1,195 @@
+.workspace-header {
+    position: relative;
+
+    margin-bottom: 24px;
+
+    padding: 24px;
+
+    overflow: hidden;
+
+    border: 1px solid #273851;
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111c30 0%,
+            #0e1829 100%
+        );
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+.workspace-header::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 38%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #28b7ee,
+            #2864ed,
+            transparent
+        );
+}
+
+
+.workspace-header-main {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.workspace-label {
+    margin: 0 0 7px;
+
+    color: #5ab8ff;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.12em;
+}
+
+
+.workspace-header h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 30px;
+
+    font-weight: 850;
+
+    letter-spacing: -0.03em;
+}
+
+
+.workspace-subtitle {
+    margin: 8px 0 0;
+
+    color: #8fa1b7;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.workspace-header-main .status {
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+    border:
+        1px solid rgba(83, 150, 255, 0.35);
+
+    background:
+        rgba(40, 100, 237, 0.14);
+
+    color: #68baff;
+}
+
+
+.workspace-header-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid #2a3a52;
+}
+
+
+.workspace-header-details > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid #293b56;
+
+    border-radius: 8px;
+
+    background: #14213a;
+}
+
+
+.workspace-header-details span {
+    color: #7fbfff;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.055em;
+}
+
+
+.workspace-header-details strong {
+    color: #f4f8fc;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+.workspace-header-details a {
+    width: fit-content;
+
+    color: #68baff;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+.workspace-header-details a:hover {
+    color: #9bcfff;
+
+    text-decoration: underline;
+}
+
+
+@media (max-width: 700px) {
+    .workspace-header-main {
+        flex-direction: column;
+    }
+
+
+    .workspace-header-details {
+        grid-template-columns: 1fr;
+    }
+}
